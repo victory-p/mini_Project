@@ -2,8 +2,7 @@
 #include "manager.h"
 
 int selectMenu(){
-  int menu;
-  
+  int menu; 
   printf("\n=============Product Management=============\n");
   printf("1. 제품 정보 조회\n");
   printf("2. 제품 정보 추가\n");
