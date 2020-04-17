@@ -59,3 +59,22 @@ void searchPrice(Product *p, int count){
   }
   if(scount==0) printf("=> 검색된 제품 정보 없음\n");
 }
+
+void searchGrade(Product *p, int count){
+  int scount = 0;
+  double search;
+  printf("=> 검색할 제품별점은? ");
+  scanf("%lf", &search);
+  printf("No / Product Name / Weight / Price / Standard Price / Grade\n");
+  printf("============================================\n");
+  for(int i=0; i<count; i++){
+    if(p[i].price != -1){
+      if(p[i].grade == search){
+        printf("%2d ", i+1);
+        readProduct(p[i]);
+        scount++;
+      }
+    }
+  }
+  if(scount==0) printf("=> 검색된 제품 정보 없음\n");
+}

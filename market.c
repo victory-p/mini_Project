@@ -85,6 +85,7 @@ int main(){
 
         if(option == 1) searchName(p, curcount);
         else if(option == 2) searchPrice(p, curcount);
+	else if(option == 3) searchGrade(p, curcount);
       }
     }
   }
