@@ -77,8 +77,15 @@ int main(){
       }
     }
     else if(menu == 5){
+      int option;
       if(count == 0) printf("=> 데이터 없음\n");
-      else searchName(p, curcount);
+      else{
+        printf("=> 원하는 검색 옵션은?(1 : 이름검색 / 2 : 가격검색 / 3 : 별점검색) ");
+        scanf("%d", &option);
+
+        if(option == 1) searchName(p, curcount);
+        else if(option == 2) searchPrice(p, curcount);
+      }
     }
   }
   printf("=> 종료됨\n");
