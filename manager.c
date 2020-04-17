@@ -23,16 +23,39 @@ int selectProductNo(Product *p, int count){
 }
 
 void searchName(Product *p, int count){
-  int scount = 0; char search[30];
-  printf("검색할 제품명은? "); scanf("%s", search);
+  int scount = 0;
+  char search[30];
+  printf("검색할 제품명은? ");
+  scanf("%s", search);
   printf("\n No Name Kor Eng Math Sum Avg\n");
   printf("============================\n");
-  for(int i=0; i<count; i++){ if(p[i].price != -1){
-    if(strstr(p[i].name, search)){
-      printf("%2d ", i+1); readProduct(p[i]);
-      scount++;
+  for(int i=0; i<count; i++){
+    if(p[i].price != -1){
+      if(strstr(p[i].name, search)){
+        printf("%2d ", i+1);
+        readProduct(p[i]);
+        scount++;
+      }
     }
   }
+  if(scount==0) printf("=> 검색된 제품 정보 없음\n");
 }
-if(scount==0) printf("=> 검색된 제품 정보 없음\n");
+
+void searchPrice(Product *p, int count){
+  int scount = 0;
+  int search;
+  printf("검색할 제품가격은? ");
+  scanf("%d", &search);
+  printf("\n No Name Kor Eng Math Sum Avg\n");
+  printf("============================\n");
+  for(int i=0; i<count; i++){
+    if(p[i].price != -1){
+      if(p[i].price == search){
+        printf("%2d ", i+1);
+        readProduct(p[i]);
+        scount++;
+      }
+    }
+  }
+  if(scount==0) printf("=> 검색된 제품 정보 없음\n");
 }
