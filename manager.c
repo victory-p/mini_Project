@@ -78,3 +78,14 @@ void searchGrade(Product *p, int count){
   }
   if(scount==0) printf("=> 검색된 제품 정보 없음\n");
 }
+
+void saveData(Product *p, int count){
+  FILE *savefile;
+
+  savefile = fopen("product.txt", "wt");
+  for(int i=0; i<count; i++){
+    if(p[i].price != -1) fprintf(savefile, "%s %.1f %.1f %.1f\n", p[i].name, p[i].gram, p[i].price, p[i].grade);
+  }
+  fclose(savefile);
+  printf("=> 파일 저장됨\n");
+}
