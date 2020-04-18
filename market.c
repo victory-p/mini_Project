@@ -83,6 +83,9 @@ int main(){
     }
     else if(menu == 5){
       if(count == 0) printf("=> 데이터 없음\n");
+      #ifdef DEBUG
+      printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
+      #endif
       else saveData(p, curcount);
     }
     else if(menu == 6){
@@ -91,9 +94,18 @@ int main(){
       else{
         printf("=> 원하는 검색 옵션은?(1 : 이름검색 / 2 : 가격검색 / 3 : 별점검색) ");
         scanf("%d", &option);
-
+	
+	#ifdef DEBUG
+	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
+	#endif
         if(option == 1) searchName(p, curcount);
+	#ifdef DEBUG
+	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
+	#endif
         else if(option == 2) searchPrice(p, curcount);
+	#ifdef DEBUG
+	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
+	#endif
         else if(option == 3) searchGrade(p, curcount);
       }
     }
