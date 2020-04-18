@@ -27,8 +27,8 @@ void searchName(Product *p, int count){
   char search[30];
   printf("검색할 제품명은? ");
   scanf("%s", search);
-  printf("\n No Name Kor Eng Math Sum Avg\n");
-  printf("============================\n");
+  printf("No / Product Name / Weight / Price / Standard Price / Grade\n");
+  printf("============================================\n");
   for(int i=0; i<count; i++){
     if(p[i].price != -1){
       if(strstr(p[i].name, search)){
@@ -46,8 +46,8 @@ void searchPrice(Product *p, int count){
   int search;
   printf("검색할 제품가격은? ");
   scanf("%d", &search);
-  printf("\n No Name Kor Eng Math Sum Avg\n");
-  printf("============================\n");
+  printf("No / Product Name / Weight / Price / Standard Price / Grade\n");
+  printf("============================================\n");
   for(int i=0; i<count; i++){
     if(p[i].price != -1){
       if(p[i].price == search){
