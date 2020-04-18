@@ -16,7 +16,7 @@ void listProduct(Product *p, int count){
 int selectProductNo(Product *p, int count){
   int num;
   listProduct(p, count);
-  printf("선택할 제품 번호는?(취소 : 0) ");
+  printf("=> 선택할 제품 번호는?(취소 : 0) ");
   scanf("%d", &num);
 
   return num;
@@ -25,7 +25,7 @@ int selectProductNo(Product *p, int count){
 void searchName(Product *p, int count){
   int scount = 0;
   char search[30];
-  printf("검색할 제품명은? ");
+  printf("=> 검색할 제품명은? ");
   scanf("%s", search);
   printf("No / Product Name / Weight / Price / Standard Price / Grade\n");
   printf("============================================\n");
@@ -44,7 +44,7 @@ void searchName(Product *p, int count){
 void searchPrice(Product *p, int count){
   int scount = 0;
   int search;
-  printf("검색할 제품가격은? ");
+  printf("=> 검색할 제품가격은? ");
   scanf("%d", &search);
   printf("No / Product Name / Weight / Price / Standard Price / Grade\n");
   printf("============================================\n");
