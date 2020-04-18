@@ -89,7 +89,7 @@ void saveData(Product *p, int count){
     }
   }
   fclose(myfile);
-  printf("=> 파일 저장됨\n");
+  printf("=> 파일 저장 완료\n");
 }
 
 int loadData(Product p[]){
