@@ -32,7 +32,7 @@ void searchName(Product *p, int count){
   for(int i=0; i<count; i++){
     if(p[i].price != -1){
       if(strstr(p[i].name, search)){
-        printf("%2d ", i+1);
+        printf("%d ", i+1);
         readProduct(p[i]);
         scount++;
       }
@@ -51,7 +51,7 @@ void searchPrice(Product *p, int count){
   for(int i=0; i<count; i++){
     if(p[i].price != -1){
       if(p[i].price == search){
-        printf("%2d ", i+1);
+        printf("%d ", i+1);
         readProduct(p[i]);
         scount++;
       }
@@ -70,7 +70,7 @@ void searchGrade(Product *p, int count){
   for(int i=0; i<count; i++){
     if(p[i].price != -1){
       if(p[i].grade == search){
-        printf("%2d ", i+1);
+        printf("%d ", i+1);
         readProduct(p[i]);
         scount++;
       }
@@ -80,12 +80,35 @@ void searchGrade(Product *p, int count){
 }
 
 void saveData(Product *p, int count){
-  FILE *savefile;
+  FILE *myfile;
 
-  savefile = fopen("product.txt", "wt");
+  myfile = fopen("product.txt", "wt");
   for(int i=0; i<count; i++){
-    if(p[i].price != -1) fprintf(savefile, "%s %.1f %.1f %.1f\n", p[i].name, p[i].gram, p[i].price, p[i].grade);
+    if(p[i].price != -1){
+      fprintf(myfile, "%.1f %.1f %.1f %s\n", p[i].gram, p[i].price, p[i].grade, p[i].name);
+    }
   }
-  fclose(savefile);
+  fclose(myfile);
   printf("=> 파일 저장됨\n");
+}
+
+int loadData(Product p[]){
+  int count = 0;
+  FILE *myfile;
+
+  myfile = fopen("product.txt", "rt");
+  if(myfile == NULL){
+    printf("=> 파일 없음\n");
+    return 0;
+  }
+
+  for(; ; count++){
+    fscanf(myfile, "%f %f %f %[^\n]s", &p[count].gram, &p[count].price, &p[count].grade, p[count].name);
+    if(feof(myfile)) break;
+  }
+  
+  fclose(myfile);
+  printf("=> 파일 로딩 완료\n");
+
+  return count;
 }
