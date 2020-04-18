@@ -40,6 +40,7 @@ int main(){
       else{
         printf("No / Product Name / Weight / Price / Standard Price / Grade\n");
         printf("============================================\n");
+	printf("=> 데이터 없음\n");
       }
     }
     else if(menu == 2){
