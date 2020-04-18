@@ -95,7 +95,6 @@ int main(){
         printf("=> 원하는 검색 옵션은?(1 : 이름검색 / 2 : 가격검색 / 3 : 별점검색) ");
         scanf("%d", &option);
 
-	printf("=> 검색된 데이터\n");	
 	#ifdef DEBUG
 	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
 	#endif
