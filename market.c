@@ -9,7 +9,8 @@ int selectMenu(){
   printf("2. 제품 정보 추가\n");
   printf("3. 제품 정보 수정\n");
   printf("4. 제품 정보 삭제\n");
-  printf("5. 제품 정보 검색\n");
+  printf("5. 제품 파일 저장\n");
+  printf("6. 제품 정보 검색\n");
   printf("0. 종료\n\n");
   printf("=> 원하는 메뉴는? ");
   scanf("%d", &menu);
@@ -78,6 +79,10 @@ int main(){
       }
     }
     else if(menu == 5){
+      if(count == 0) printf("=> 데이터 없음\n");
+      else saveData(p, curcount);
+    }
+    else if(menu == 6){
       int option;
       if(count == 0) printf("=> 데이터 없음\n");
       else{
