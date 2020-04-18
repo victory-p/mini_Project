@@ -3,7 +3,7 @@
 
 int selectMenu(){
   int menu;
- 
+  
   printf("\n=============Product Management=============\n");
   printf("1. 제품 정보 조회\n");
   printf("2. 제품 정보 추가\n");
@@ -23,6 +23,9 @@ int main(){
   int curcount = 0;
   int count = 0;
   int menu;
+
+  count = loadData(p);
+  curcount = count;
   
   while(1){
     menu = selectMenu();
@@ -91,7 +94,7 @@ int main(){
 
         if(option == 1) searchName(p, curcount);
         else if(option == 2) searchPrice(p, curcount);
-	else if(option == 3) searchGrade(p, curcount);
+        else if(option == 3) searchGrade(p, curcount);
       }
     }
   }
